@@ -3,8 +3,6 @@ import allure
 from pages.main_page import MainPage
 from pages.auth_page import AuthPage
 
-from locators.auth_page_locators import AuthPageLocators
-
 from faker import Faker
 
 
@@ -20,7 +18,7 @@ class TestPass:
         main_page.click_enter_into_acc_button()
         auth_page.click_link_forgot_pass()
 
-        element = auth_page.find(AuthPageLocators.TEXT_RECOVERY_PASS).text
+        element = auth_page.text_recovery_pass
         assert element
 
     @allure.title(
@@ -35,9 +33,9 @@ class TestPass:
         auth_page.click_link_forgot_pass()
         auth_page.send_email_forgot_pass(email)
         auth_page.click_restore_button()
-        auth_page.wait_element(AuthPageLocators.TEXT_CODE_FROM_EMAIL)
+        auth_page.wait_text_code_from_email()
 
-        element = auth_page.find(AuthPageLocators.TEXT_CODE_FROM_EMAIL).text
+        element = auth_page.text_code_from_email
         assert element
 
     @allure.title(
@@ -53,9 +51,9 @@ class TestPass:
         auth_page.click_link_forgot_pass()
         auth_page.send_email_forgot_pass(email)
         auth_page.click_restore_button()
-        auth_page.wait_element(AuthPageLocators.TEXT_CODE_FROM_EMAIL)
+        auth_page.wait_text_code_from_email()
         auth_page.send_new_pass(new_pass)
         auth_page.click_button_show_pass()
 
-        element = auth_page.find(AuthPageLocators.PASS_SHOWN)
+        element = auth_page.find_pass_shown
         assert element

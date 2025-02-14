@@ -4,9 +4,6 @@ from pages.main_page import MainPage
 from pages.auth_page import AuthPage
 from pages.personal_acc_page import PersonalAccPage
 
-from locators.auth_page_locators import AuthPageLocators
-from locators.personal_acc_page_locators import PersonalAccPageLocators
-from locators.header_locators import Headerlocators
 
 
 class TestPersonalAcc:
@@ -16,10 +13,10 @@ class TestPersonalAcc:
         main_page = MainPage(driver)
         acc_page = PersonalAccPage(driver)
 
-        main_page.click_element(Headerlocators.PERSONAL_ACC)
-        acc_page.wait_element(PersonalAccPageLocators.MESS_PERSONAL_ACC_INFO)
+        main_page.click_personal_acc()
+        acc_page.wait_text_pers_acc()
 
-        element = acc_page.find(PersonalAccPageLocators.MESS_PERSONAL_ACC_INFO).text
+        element = acc_page.text_pers_acc
         assert element
 
     @allure.title(
@@ -28,12 +25,12 @@ class TestPersonalAcc:
         main_page = MainPage(driver)
         acc_page = PersonalAccPage(driver)
 
-        main_page.click_element(Headerlocators.PERSONAL_ACC)
-        acc_page.wait_element(PersonalAccPageLocators.MESS_PERSONAL_ACC_INFO)
+        main_page.click_personal_acc()
+        acc_page.wait_text_pers_acc()
         acc_page.click_order_history_section()
-        acc_page.wait_element(PersonalAccPageLocators.LIST_ORDER_HISTORY)
+        acc_page.wait_list_order()
 
-        element = acc_page.find(PersonalAccPageLocators.LIST_ORDER_HISTORY)
+        element = acc_page.find_list_order
         assert element
 
     @allure.title(
@@ -43,10 +40,10 @@ class TestPersonalAcc:
         acc_page = PersonalAccPage(driver)
         auth_page = AuthPage(driver)
 
-        main_page.click_element(Headerlocators.PERSONAL_ACC)
-        acc_page.wait_element(PersonalAccPageLocators.MESS_PERSONAL_ACC_INFO)
+        main_page.click_personal_acc()
+        acc_page.wait_text_pers_acc()
         acc_page.click_button_logout()
-        auth_page.wait_element(AuthPageLocators.MESS_ENTRANCE_LOGIN)
+        auth_page.wait_text_entrance()
 
-        element = auth_page.find(AuthPageLocators.MESS_ENTRANCE_LOGIN).text
+        element = auth_page.text_entrance
         assert element

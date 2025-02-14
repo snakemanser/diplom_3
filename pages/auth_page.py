@@ -26,3 +26,27 @@ class AuthPage(BasePage):
     @allure.step('Клик по кнопке, которая показывает пароль')
     def click_button_show_pass(self):
         self.click_element(AuthPageLocators.BUTTON_SHOW_PASS)
+
+    @allure.step('Достаем текст "Восстановление пароля"')
+    def text_recovery_pass(self):
+        return self.find(AuthPageLocators.TEXT_RECOVERY_PASS).text
+
+    @allure.step('Ждем текст "Введите код из письма"')
+    def wait_text_code_from_email(self):
+        self.wait_element(AuthPageLocators.TEXT_CODE_FROM_EMAIL)
+
+    @allure.step('Достаем текст "Введите код из письма"')
+    def text_code_from_email(self):
+        return self.find(AuthPageLocators.TEXT_CODE_FROM_EMAIL).text
+
+    @allure.step('Находим пароль')
+    def find_pass_shown(self):
+        self.find(AuthPageLocators.PASS_SHOWN)
+
+    @allure.step('Ждем текст "Вход"')
+    def wait_text_entrance(self):
+        self.wait_element(AuthPageLocators.MESS_ENTRANCE_LOGIN)
+
+    @allure.step('Достаем текст "Вход"')
+    def text_entrance(self):
+        return self.find(AuthPageLocators.MESS_ENTRANCE_LOGIN).text

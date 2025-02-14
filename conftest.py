@@ -16,6 +16,8 @@ def driver(request):
     yield browser
     browser.quit()
 
+
+
 # Фикстура логина тестового юзера 5го спринта
 @pytest.fixture
 def user_login(driver):

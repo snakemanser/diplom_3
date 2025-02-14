@@ -1,0 +1,1 @@
+{"name": "Проверяет, что созданный заказ есть в списке заказов ленты заказов", "status": "skipped", "parameters": [{"name": "driver", "value": "'firefox'"}], "start": 1739500621227, "stop": 1739500621227, "uuid": "4dc29593-6ba9-4d13-b50b-2aa61090a47c", "testCaseId": "4d5fcee6846649a5734d061bc5ae6813", "fullName": "tests.test_order_feed.TestOrder#test_order_in_orders_feed"}
